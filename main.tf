@@ -10,7 +10,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
-
+#local storage
 
 data "aws_vpc" "main" {
   default = true
