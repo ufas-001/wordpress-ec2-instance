@@ -16,7 +16,8 @@ data "aws_ami" "ubuntu" {
     values = ["ebs"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["099720109477"] 
+  # Canonical
 }
 
 output "ami_id" {
