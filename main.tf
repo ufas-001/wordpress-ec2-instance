@@ -32,13 +32,9 @@ module "aws_security_group" {
   vpc_id = data.aws_vpc.main.id
 }
 
-resource "aws_instance" "wordpress" {
-  ami                    = module.ami.ami_id
-  instance_type          = "t2.micro"
-  key_name               = "terraformkey"
-  vpc_security_group_ids = [module.aws_security_group.security_groups_id]
-  tags = {
-    "Name" = "apache-server"
-  }
-   user_data = file("./userdata.sh")
+module "aws_instance" {
+  source = "./module/aws_instance"
+  aws-ami-id = module.ami.ami_id
+  aws-security-group-id = module.aws_security_group.security_groups_id
+  file-path = "./userdata.sh"
 }
