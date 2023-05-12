@@ -1,5 +1,5 @@
-resource "aws_security_group" "allow_tls" {
-  name        = "allow_tls"
+resource "aws_security_group" "allow_tls_2" {
+  name        = "allow_tls_2"
   description = "Allow TLS inbound traffic"
   vpc_id      = var.vpc_id
 
@@ -43,5 +43,5 @@ resource "aws_security_group" "allow_tls" {
 }
 
 output "security_groups_id" {
-  value = aws_security_group.allow_tls.id
+  value = aws_security_group.allow_tls_2.id
 }
